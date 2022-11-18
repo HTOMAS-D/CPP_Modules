@@ -4,7 +4,7 @@ SRCS = $(wildcard srcs/*.cpp)
 
 OBJS_D = objs
 
-OBJS = $(SRCS:%.cpp=%.o)
+OBJS = $(SRCS:srcs/%.cpp=$(OBJS_D)/%.o)
 
 CC = c++
 

@@ -1,6 +1,6 @@
 NAME = megaphone
 
-SRCS = $(wildcard *.cpp)
+SRCS = megaphone.cpp #$(wildcard *.cpp)
 
 OBJS_D = objs
 

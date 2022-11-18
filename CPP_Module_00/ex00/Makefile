@@ -47,11 +47,11 @@ $(NAME): $(OBJS)
 
 clean: 
 	@$(RM) $(OBJS_D)
-	@echo "$(BRED)OBJECTS REMOVED$(DEFAULT)"
+	@echo "$(BYELLOW)OBJECTS $(BRED)REMOVED$(DEFAULT)"
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo "$(BRED)$(NAME) REMOVED$(DEFAULT)"
+	@echo "$(BYELLOW)$(NAME) $(BRED)REMOVED$(DEFAULT)"
 
 re: fclean all
 

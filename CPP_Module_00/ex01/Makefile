@@ -1,6 +1,6 @@
-NAME = megaphone
+NAME = MyAwesomePhonebook
 
-SRCS = megaphone.cpp #$(wildcard *.cpp)
+SRCS = $(wildcard *.cpp)
 
 OBJS_D = objs
 
@@ -42,12 +42,12 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "$(BLUE)Compiling $(YELLOW)$(NAME)$(BLUE) . . . . . . .$(DEFAULT)"
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)Successfully built --> 😈😈😈 $(YELLOW)$(NAME)$(DEFAULT) 😈😈😈"
 
 clean: 
 	@$(RM) $(OBJS_D)
-	@echo "$(BYELLOW)OBJECTS $(BRED)REMOVED$(DEFAULT)"
+	@echo "$(BYELLOW)Objects $(BRED)REMOVED$(DEFAULT)"
 
 fclean: clean
 	@$(RM) $(NAME)

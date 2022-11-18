@@ -1,14 +1,14 @@
 NAME = megaphone
 
-SRCS = $(wildcard srcs/*.cpp)
+SRCS = megaphone.cpp #$(wildcard *.cpp)
 
 OBJS_D = objs
 
-OBJS = $(SRCS:srcs/%.cpp=$(OBJS_D)/%.o)
+OBJS = $(SRCS:%.cpp = /%.o)
 
 CC = c++
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 RM = rm -rf
 
@@ -34,7 +34,7 @@ BWHITE	= \033[37;1m
 
 ##### ACTIONS #####
 
-$(OBJS_D)/%.opp: srcs/%.cpp
+%.o:%.cpp
 	@mkdir -p $(OBJS_D)
 	$(CC) $(FLAGS) -o $@ -c $<
 
@@ -42,15 +42,15 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "$(BLUE)Compiling $(YELLOW)$(NAME)$(BLUE) . . . . . . .$(DEFAULT)"
-	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)Successfully built --> 😈😈😈 $(YELLOW)$(NAME)$(DEFAULT) 😈😈😈"
 
 clean: 
-	$(RM) $(OBJS_D)
+	@$(RM) $(OBJS_D)
 	@echo "$(BRED)OBJECTS REMOVED$(DEFAULT)"
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 	@echo "$(BRED)$(NAME) REMOVED$(DEFAULT)"
 
 re: fclean all

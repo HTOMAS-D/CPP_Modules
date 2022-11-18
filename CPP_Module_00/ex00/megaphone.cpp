@@ -10,15 +10,15 @@ int main(int ac, char **av){
 	if(ac == 1)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	else 
-	while (++i < ac)
-	{
-		j = -1;
-		str = av[i];
-		while(str[++j])
-			std::cout << (char) std::toupper(str[j]);
-		if((i + 1) < ac)
-			std::cout << " ";
-	}
+		while (++i < ac)
+		{
+			j = -1;
+			str = av[i];
+			while(str[++j])
+				std::cout << (char) std::toupper(str[j]);
+			if((i + 1) < ac)
+				std::cout << " ";
+		}
 	std::cout << std::endl;
 	return (0);
 }

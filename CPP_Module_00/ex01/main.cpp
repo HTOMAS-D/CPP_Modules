@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Phonebook.hpp"
+#include <cstdlib>
 
 void ask_input(void){
 	std::cout << "\033[0;32mADD \033[0;33m-> if you want to add a new contact" << std::endl;
@@ -10,15 +11,20 @@ void ask_input(void){
 
 int main(){
 	std::string command;
-
+	Phonebook phone;
 	while (1){
+		system("clear");
 		ask_input();
 		getline(std::cin, command);
 		if (command == "EXIT")
 			break;
-		// else if (command == "ADD")
-		// else if (command == "SEARCH")
-		else
+		else if (command == "ADD")
+			phone.add_contact();
+	// else if (command == "SEARCH")
+		else{
+			system("clear");
 			std::cout << "\033[0;31mPlease enter a valid command\033[0m" << std::endl;
+		}
 	}
+	system("clear");
 }

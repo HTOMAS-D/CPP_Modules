@@ -42,7 +42,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "$(BLUE)Compiling $(YELLOW)$(NAME)$(BLUE) . . . . . . .$(DEFAULT)"
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)Successfully built --> 😈😈😈 $(YELLOW)$(NAME)$(DEFAULT) 😈😈😈"
 
 clean: 

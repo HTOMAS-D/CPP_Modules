@@ -1,20 +1,35 @@
-#include "Contact.hpp"
+#include "Phonebook.hpp"
+#include <iostream>
 
-#ifndef PHONEBOOK_H
-#define PHONEBOOK_H
+Phonebook::Phonebook(){
+	std::cout << "Constructor called" << std::endl;
+	this->index = 0;
+}
 
-/*******COLORS*******/
-#define RED "\033[0;31m"
-#define GREEN "\033[0;32m"
-#define YELLOW "\033[0;33m"
-#define BLUE "\033[0;34m"
-#define DEFAULT "\033[0m"
+Phonebook::~Phonebook(){
+	std::cout << "Destructor called" << std::endl;
+}
 
-class Phonebook{
-	
-	public:
-		Phonebook(void);
-		~Phonebook(void);
-};
+void Phonebook::add_contact(void){
+	std::string holder;
+	std::cout << "First name: ";
+	getline(std::cin, holder);
+	this->_people[index].add_Fname(holder);
+	std::cout << "Last name: ";
+	getline(std::cin, holder);
+	this->_people[index].add_Lname(holder);
+	std::cout << "Phone number: ";
+	getline(std::cin, holder);
+	this->_people[index].add_Numb(holder);
+	std::cout << "Enter nickname: ";
+	getline(std::cin, holder);
+	this->_people[index].add_Nick(holder);
+	std::cout << "Enter darkest secret: ";
+	getline(std::cin, holder);
+	this->_people[index].add_Dsecret(holder);
+	if ((this->index + 1) >= 8)
+		this->index = 0;
+	else
+		this->index++;
 
-#endif
+}

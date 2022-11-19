@@ -1,12 +1,10 @@
 #include <iostream>
 #include "Contact.hpp"
 
-Contact::Contact(){
-	std::cout << "Constructor called" << std::endl;
-}
+Contact::Contact(){}
 
 Contact::~Contact(){
-	std::cout << "Destructor called" << std::endl;
+//	std::cout << "Destructor called" << std::endl;
 }
 
 void Contact::add_Fname(std::string fname){

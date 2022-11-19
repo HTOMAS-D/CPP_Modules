@@ -18,8 +18,10 @@ int main(){
 		getline(std::cin, command);
 		if (command == "EXIT")
 			break;
-		else if (command == "ADD")
+		else if (command == "ADD"){
+			system("clear");
 			phone.add_contact();
+		}
 	// else if (command == "SEARCH")
 		else{
 			system("clear");

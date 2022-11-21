@@ -18,6 +18,7 @@ class Phonebook{
 
 		void add_contact(void);
 		void search_contact(void);
+		void show_contact(int i);
 	private:
 		int _index;
 		int _numb_contacts;

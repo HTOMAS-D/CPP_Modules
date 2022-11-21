@@ -82,3 +82,10 @@ void	Phonebook::search_contact(void){
 		i++;
 	}
 }
+
+void Phonebook::show_contact(int i){
+	if(i > _numb_contacts){
+		std::cout << "You've only added " << _numb_contacts << "people to your contact list";
+		return;
+	}
+}

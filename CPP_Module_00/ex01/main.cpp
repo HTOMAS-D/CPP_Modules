@@ -13,18 +13,22 @@ int main(){
 	std::string command;
 	Phonebook phone;
 	while (1){
-		system("clear");
+	//	system("clear");
 		ask_input();
 		getline(std::cin, command);
 		if (command == "EXIT")
 			break;
 		else if (command == "ADD"){
-			system("clear");
+	//		system("clear");
 			phone.add_contact();
 		}
-	// else if (command == "SEARCH")
+		else if (command == "SEARCH"){
+	//		system("clear");
+			phone.search_contact();
+			std::cout << BLUE << "*FOR MORE INFO PLEASE ENTER THE INDEX DESIRED*" << std::endl;
+		}
 		else{
-			system("clear");
+	//		system("clear");
 			std::cout << "\033[0;31mPlease enter a valid command\033[0m" << std::endl;
 		}
 	}

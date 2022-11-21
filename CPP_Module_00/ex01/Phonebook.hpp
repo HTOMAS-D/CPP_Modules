@@ -17,8 +17,10 @@ class Phonebook{
 		~Phonebook(void);
 
 		void add_contact(void);
+		void search_contact(void);
 	private:
-		int index;
+		int _index;
+		int _numb_contacts;
 		Contact _people[8];
 };
 

@@ -42,7 +42,6 @@ void	Phonebook::add_contact(void){
 void	Phonebook::search_contact(void){
 	int i = 0;
 	std::string str;
-
 	if (this->_numb_contacts == 0){
 		std::cout << RED << "There are no contacts in your phonebook, please get some friends" << std::endl; 
 		return ;
@@ -84,8 +83,44 @@ void	Phonebook::search_contact(void){
 }
 
 void Phonebook::show_contact(int i){
-	if(i > _numb_contacts){
-		std::cout << "You've only added " << _numb_contacts << "people to your contact list";
-		return;
+	std::string temp;
+	int leggo = 1;
+	int flag = 1;
+	system("clear");
+	if (i > 7){
+		std::cout << "The Phonebook is limited to 8 Contacts, sorry bro" << std::endl;
+//		sleep(2);
+		return ;
 	}
+	else if(i >= _numb_contacts){
+		std::cout << "You've only added " << _numb_contacts << "people to your contact list";
+//		sleep(2);
+		return ;
+	}
+	else if(i < 0){
+		std::cout << "an index can't be a negative number :|" << std::endl;
+//		sleep(2);
+		return ;
+	}
+	else{
+		std::cout << GREEN << "First Name: " << DEFAULT << _people[i].get_Fname() << std::endl;
+		std::cout << GREEN << "Last Name: " << DEFAULT << _people[i].get_Lname() << std::endl;
+		std::cout << GREEN << "Nickame: " << DEFAULT << _people[i].get_Nick() << std::endl;
+		std::cout << GREEN << "Numb: " << DEFAULT << _people[i].get_Numb() << std::endl;
+		std::cout << GREEN << "Darkest secret: " << DEFAULT << _people[i].get_Dsecret() << std::endl;
+	}
+	while (leggo){
+		if (flag == 1){
+			std::cout << "To go back to the menu please type " << RED << "EXIT" << DEFAULT << std::endl;
+			flag = 0;	
+		}
+		std::cin >> temp;
+		if (temp == "EXIT")
+			break;
+		else
+			std::cout << "Not a valid command, try " << RED << "EXIT" << DEFAULT << std::endl;
+	}
+
+
+
 }

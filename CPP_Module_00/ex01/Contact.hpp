@@ -21,6 +21,8 @@ class Contact{
 		std::string get_Fname(void);
 		std::string get_Lname(void);
 		std::string get_Nick(void);
+		std::string get_Numb(void);
+		std::string get_Dsecret(void);
 };
 
 #endif /******* CONTACT_H ******/

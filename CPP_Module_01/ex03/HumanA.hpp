@@ -6,11 +6,11 @@
 
 class Human_A{
 	public:
-		Human_A(void);
+		Human_A(std::string name, Weapon _weapA);
 		~Human_A(void);
-		
+		void attack(void);
 	private:
-		std::string _name;
+		std::string _nameA;
 		Weapon _weaponA;
 };
 

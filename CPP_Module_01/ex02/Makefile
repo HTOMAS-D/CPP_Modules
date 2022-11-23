@@ -1,4 +1,4 @@
-NAME = Moar_brainz
+NAME = HI_THIS_BRAIN
 
 SRCS = $(wildcard *.cpp)
 

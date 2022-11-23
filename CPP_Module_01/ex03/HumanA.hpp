@@ -4,10 +4,10 @@
 #ifndef HUMAN_A
 #define HUMAN_A
 
-class Human_A{
+class HumanA{
 	public:
-		Human_A(std::string name, Weapon _weapA);
-		~Human_A(void);
+		HumanA(std::string name, Weapon _weapA);
+		~HumanA(void);
 		void attack(void);
 	private:
 		std::string _nameA;

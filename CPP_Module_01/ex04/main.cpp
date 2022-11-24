@@ -38,5 +38,7 @@ int main(int ac, char **av){
 		}
 		of_file << &temp[i] << std::endl;
 	}
+	in_file.close();
+	of_file.close();
 	return (0);
 }

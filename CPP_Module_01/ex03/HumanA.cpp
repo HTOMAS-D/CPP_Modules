@@ -1,13 +1,13 @@
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon _weapA){
-	this->_nameA = name;
-	this->_weaponA = _weapA;
-	std::cout << this->_nameA << " was born" << std::endl;
+HumanA::HumanA(){}
+
+HumanA::HumanA(std::string name, Weapon _weapA): _nameA(name), _weaponA(_weapA){
+//	std::cout << this->_nameA << " was born" << std::endl;
 }
 
 HumanA::~HumanA(){
-	std::cout << this->_nameA << "DIED" << std::endl;
+//	std::cout << this->_nameA << "DIED" << std::endl;
 }
 
 void HumanA::attack(void){

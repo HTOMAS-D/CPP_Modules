@@ -6,6 +6,7 @@
 
 class HumanB{
 	public:
+		HumanB();
 		HumanB(std::string name);
 		~HumanB(void);
 		void attack(void);

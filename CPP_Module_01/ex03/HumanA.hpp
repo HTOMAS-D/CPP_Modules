@@ -6,6 +6,7 @@
 
 class HumanA{
 	public:
+		HumanA();
 		HumanA(std::string name, Weapon _weapA);
 		~HumanA(void);
 		void attack(void);

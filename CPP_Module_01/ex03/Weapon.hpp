@@ -12,6 +12,7 @@
 
 class Weapon{
 	public:
+		Weapon();
 		Weapon(std::string name);
 		~Weapon(void);
 		std::string &getType(void);

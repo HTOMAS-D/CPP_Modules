@@ -15,8 +15,14 @@ class Harl{
 	public:
 		Harl(void);
 		~Harl(void);
+		
+		Harl(std::string level);
 		void complain(std::string level);
+	
 	private:
+		std::string _level[4];
+		void(Harl::*f[4])(void);
+
 		void debug(void);
 		void info(void);
 		void warning(void);

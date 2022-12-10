@@ -1,4 +1,4 @@
-NAME = 	Harl_filter
+NAME = More_Useful
 
 SRCS = $(wildcard *.cpp)
 

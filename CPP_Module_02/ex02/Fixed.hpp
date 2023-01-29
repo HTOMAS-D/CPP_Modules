@@ -12,18 +12,20 @@
 
 class Fixed{
 	public:
-		//CONSTRUCTORS AND DECONSTRUCTORS
+		// CONSTRUCTORS AND DECONSTRUCTORS
 		Fixed(void); 							//Canonical
 		Fixed(Fixed const &copy);				//Canonical
 		Fixed(int const numb);
 		Fixed(float const numb);
 		~Fixed(void); 							//Canonical
 
+		// OPERATOR OVERLOAD
 		Fixed &	operator=(Fixed const & rhs); 	//Canonical
-		static Fixed const max(Fixed const a, Fixed const b);
+		
+		// USEFUL FUNCTIONS
+		static Fixed max(Fixed &a, Fixed &b);
 		float toFloat(void) const;
 		int toInt(void) const;
-
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
 	private:

@@ -2,6 +2,10 @@
 
 const int Fixed::_f_bits = 8;
 
+//*****************
+// CONSTRUCTORS AND DECONSTRUCTORS
+//*****************
+
 Fixed::Fixed(void){
 	std::cout << "Default constructor called!" << std::endl;
 	this->_f_point = 0;
@@ -26,11 +30,9 @@ Fixed::~Fixed(void){
 	std::cout << "Deconstructor called!" << std::endl;
 }
 
-Fixed & Fixed::operator=(Fixed const &rhs){
-	std::cout <<"Assignement operator called!" << std::endl;
-	this->setRawBits(rhs.getRawBits());
-	return *this;
-}
+//*****************
+// RANDOM FUNCTIONS
+//*****************
 
 int Fixed::getRawBits(void) const{
 //	std::cout << "getRawBits called!" << std::endl;
@@ -49,11 +51,22 @@ float Fixed::toFloat(void)const{
 	return((float)this->_f_point / (1 << this->_f_bits));
 }
 
-Fixed const& Fixed::max(Fixed const &a, Fixed const &b){
+
+Fixed Fixed::max(const Fixed &a, const Fixed &b){
 
 }
+
+//*****************
+// OPERATOR OVERLOAD
+//*****************
 
 std::ostream &operator<<(std::ostream &o, const Fixed &original){
 	o << original.toFloat();
 	return (o);
+}
+
+Fixed & Fixed::operator=(Fixed const &rhs){
+	std::cout <<"Assignement operator called!" << std::endl;
+	this->setRawBits(rhs.getRawBits());
+	return *this;
 }

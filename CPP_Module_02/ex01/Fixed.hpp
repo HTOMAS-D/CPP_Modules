@@ -14,9 +14,9 @@ class Fixed{
 	public:
 		Fixed(void); 							//Canonical
 		Fixed(Fixed const &copy);				//Canonical
-		Fixed &	operator=(Fixed const & rhs); 	//Canonical
 		Fixed(int const numb);
 		Fixed(float const numb);
+		Fixed &	operator=(Fixed const & rhs); 	//Canonical
 		~Fixed(void); 							//Canonical
 
 		float toFloat(void) const;

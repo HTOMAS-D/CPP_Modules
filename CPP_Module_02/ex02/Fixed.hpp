@@ -11,6 +11,10 @@
 #define DEFAULT "\033[0m"
 
 class Fixed{
+	private:
+		int _f_point;
+		static const int _f_bits;
+	
 	public:
 		// CONSTRUCTORS AND DECONSTRUCTORS
 		Fixed(void); 							//Canonical
@@ -19,18 +23,30 @@ class Fixed{
 		Fixed(float const numb);
 		~Fixed(void); 							//Canonical
 
-		// OPERATOR OVERLOAD
+		//ASSIGNEMENT OPERATOR
 		Fixed &	operator=(Fixed const & rhs); 	//Canonical
 		
+		//ARITHMETIC OPERATORS
+		Fixed operator+(Fixed const & other);
+		Fixed operator-(Fixed const & other);
+		Fixed operator*(Fixed const & other);
+		Fixed operator/(Fixed const & other);		
+		
+		//COMPARISON OPERATORS
+		bool operator<(const Fixed & other);
+		bool operator>(const Fixed & other);
+		bool operator<=(const Fixed & other);
+		bool operator>=(const Fixed & other);
+		bool operator==(const Fixed & other);
+		bool operator!=(const Fixed & other);
+	//	static Fixed max(Fixed &a, Fixed &b);
+		
+
 		// USEFUL FUNCTIONS
-		static Fixed max(Fixed &a, Fixed &b);
 		float toFloat(void) const;
 		int toInt(void) const;
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
-	private:
-		int _f_point;
-		static const int _f_bits;
 };
 
 std::ostream &operator<<(std::ostream &o, const Fixed &original);

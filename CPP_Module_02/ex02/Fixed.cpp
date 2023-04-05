@@ -27,7 +27,7 @@ Fixed::Fixed(float const numb){
 }
 
 Fixed::~Fixed(void){
-	std::cout << "Deconstructor called!" << std::endl;
+	std::cout << "Defaul deconstructor called!" << std::endl;
 }
 
 //*****************
@@ -52,9 +52,9 @@ float Fixed::toFloat(void)const{
 }
 
 
-Fixed Fixed::max(const Fixed &a, const Fixed &b){
+// Fixed Fixed::max(const Fixed &a, const Fixed &b){
 
-}
+// }
 
 //*****************
 // OPERATOR OVERLOAD
@@ -65,8 +65,61 @@ std::ostream &operator<<(std::ostream &o, const Fixed &original){
 	return (o);
 }
 
+//ASSIGNEMENT
 Fixed & Fixed::operator=(Fixed const &rhs){
 	std::cout <<"Assignement operator called!" << std::endl;
 	this->setRawBits(rhs.getRawBits());
 	return *this;
+}
+
+
+
+//ARITHEMETIC
+Fixed Fixed::operator+(Fixed const & other){
+	Fixed sum;
+	sum.setRawBits(this->getRawBits() + other.getRawBits());
+	return sum;
+}
+
+Fixed Fixed::operator-(Fixed const & other){
+	Fixed minus;
+	minus.setRawBits(this->getRawBits() - other.getRawBits());
+	return minus;
+}
+
+Fixed Fixed::operator*(Fixed const & other){
+	Fixed mult;
+	mult.setRawBits(this->getRawBits()*other.getRawBits());
+	return mult;
+}
+
+Fixed Fixed::operator/(Fixed const & other){
+	Fixed div;
+	div.setRawBits(this->getRawBits() / other.getRawBits());
+	return div;
+}
+
+//COMPARISON OPERATORS
+bool Fixed::operator<(const Fixed & other){
+	return ();
+}
+
+bool Fixed::operator<=(const Fixed & other){
+	return ();
+}
+
+bool Fixed::operator>=(const Fixed & other){
+	return ();
+}
+
+bool Fixed::operator>(const Fixed & other){
+	return ();
+}
+
+bool Fixed::operator==(const Fixed & other){
+	return ();
+}
+
+bool Fixed::operator!=(const Fixed & other){
+	return ();
 }

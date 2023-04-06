@@ -101,25 +101,25 @@ Fixed Fixed::operator/(Fixed const & other){
 
 //COMPARISON OPERATORS
 bool Fixed::operator<(const Fixed & other){
-	return ();
+	return (_f_point < other.getRawBits());
 }
 
 bool Fixed::operator<=(const Fixed & other){
-	return ();
+	return (_f_point <= other.getRawBits());
 }
 
 bool Fixed::operator>=(const Fixed & other){
-	return ();
+	return (_f_point > other.getRawBits());
 }
 
 bool Fixed::operator>(const Fixed & other){
-	return ();
+	return (_f_point >= other.getRawBits());
 }
 
 bool Fixed::operator==(const Fixed & other){
-	return ();
+	return (_f_point == other.getRawBits());
 }
 
 bool Fixed::operator!=(const Fixed & other){
-	return ();
+	return (_f_point != other.getRawBits());
 }

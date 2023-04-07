@@ -1,4 +1,4 @@
-NAME = 	My_First_Class
+NAME = 	Serena
 
 SRCS = $(wildcard *.cpp)
 

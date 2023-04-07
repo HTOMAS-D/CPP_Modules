@@ -2,6 +2,8 @@
 #define FIXED_HPP
 #include <math.h>
 #include <iostream>
+#include <iomanip>
+#include <cmath>
 
 /*******COLORS*******/
 #define RED "\033[0;31m"
@@ -13,7 +15,7 @@
 class Fixed{
 	private:
 		int _f_point;
-		static const int _f_bits;
+		static const int _f_bits = 8;
 	
 	public:
 		// CONSTRUCTORS AND DECONSTRUCTORS
@@ -27,20 +29,30 @@ class Fixed{
 		Fixed &	operator=(Fixed const & rhs); 	//Canonical
 		
 		//ARITHMETIC OPERATORS
-		Fixed operator+(Fixed const & other);
-		Fixed operator-(Fixed const & other);
-		Fixed operator*(Fixed const & other);
-		Fixed operator/(Fixed const & other);		
+		Fixed operator+(Fixed const & other)const;
+		Fixed operator-(Fixed const & other)const;
+		Fixed operator*(const Fixed &other)const;
+		Fixed operator/(Fixed const & other)const;		
 		
 		//COMPARISON OPERATORS
-		bool operator<(const Fixed & other);
-		bool operator>(const Fixed & other);
-		bool operator<=(const Fixed & other);
-		bool operator>=(const Fixed & other);
-		bool operator==(const Fixed & other);
-		bool operator!=(const Fixed & other);
-	//	static Fixed max(Fixed &a, Fixed &b);
+		bool operator<(const Fixed & other)const;
+		bool operator>(const Fixed & other)const;
+		bool operator<=(const Fixed & other)const;
+		bool operator>=(const Fixed & other)const;
+		bool operator==(const Fixed & other)const;
+		bool operator!=(const Fixed & other)const;
 		
+		//MIN AND MAXS
+		static Fixed &max(Fixed &a, Fixed &b);
+		static Fixed &min(Fixed &a, Fixed &b);
+		static const Fixed &max(const Fixed &a, const Fixed &b);
+		static const Fixed &min(const Fixed &a, const Fixed &b);
+		
+		//INCREMENTATION AND DECREMENTATION
+		Fixed operator++(int);//a++
+		Fixed operator--(int);//a--
+		Fixed &operator++(void);//++a
+		Fixed &operator--(void);//--a
 
 		// USEFUL FUNCTIONS
 		float toFloat(void) const;

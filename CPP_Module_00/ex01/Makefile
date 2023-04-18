@@ -1,6 +1,6 @@
 NAME = MyAwesomePhonebook
 
-SRCS = $(wildcard *.cpp)
+SRCS = Contact.cpp main.cpp Phonebook.cpp
 
 OBJS_D = objs
 

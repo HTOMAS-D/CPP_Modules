@@ -44,7 +44,6 @@ void ClapTrap::beRepaired(unsigned int amount){
 
 }
 
-
 void ClapTrap::takeDamage(unsigned int amount){
 	if(!_hit_points){
 		std::cout << _name << " is already dead" << std::endl;
@@ -54,4 +53,12 @@ void ClapTrap::takeDamage(unsigned int amount){
 		_hit_points = _hit_points - (int)amount;
 		std::cout << _name << " took " << amount << " points of damage" << std::endl;
 	}
+}
+
+ClapTrap &ClapTrap::operator=(ClapTrap const &other){
+	_name = other._name;
+	_hit_points = other._hit_points;
+	_energy_points = other._energy_points;
+	_attack_damage = other._attack_damage;
+	return *this;
 }

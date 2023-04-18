@@ -27,7 +27,7 @@ class ClapTrap{
 		~ClapTrap(void); 							//Canonical
 
 		//ASSIGNEMENT OPERATOR
-		ClapTrap&	operator=(ClapTrap const &rhs); 	//Canonical
+		ClapTrap&	operator=(ClapTrap const &other); 	//Canonical
 
 		//METHODS
 		void attack(const std::string& target);

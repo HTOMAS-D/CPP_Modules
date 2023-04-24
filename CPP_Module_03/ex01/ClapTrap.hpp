@@ -13,7 +13,7 @@
 #define DEFAULT "\033[0m"
 
 class ClapTrap{
-	private:
+	protected:
 		std::string _name;
 		int _hit_points;
 		int _energy_points;

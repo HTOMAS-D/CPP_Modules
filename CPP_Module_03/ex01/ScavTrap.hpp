@@ -13,7 +13,7 @@ class ScavTrap : public ClapTrap{
 		ScavTrap(ScavTrap const &copy);				//Canonical
 		~ScavTrap(void); 							//Canonical
 		
-		ScavTrap&	operator=(ScavTrap const &rhs);
+		ScavTrap&	operator=(ScavTrap const &rhs); //Canonical
 };
 
 #endif

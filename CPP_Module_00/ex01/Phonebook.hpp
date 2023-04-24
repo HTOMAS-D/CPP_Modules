@@ -1,5 +1,6 @@
 #include "Contact.hpp"
 #include <cstdlib>
+#include <stdlib.h>
 #ifndef PHONEBOOK_H
 #define PHONEBOOK_H
 
@@ -18,7 +19,7 @@ class Phonebook{
 
 		void add_contact(void);
 		void search_contact(void);
-		void show_contact(int i);
+		void show_contact(char i);
 	private:
 		int _index;
 		int _numb_contacts;

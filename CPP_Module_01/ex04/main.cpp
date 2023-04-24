@@ -2,7 +2,7 @@
 #include <string>
 #include <fstream>
 #include "color.hpp"
-#include "cstdlib"
+#include <cstdlib>
 
 typedef std::string	string;
 

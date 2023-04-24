@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 #include "color.hpp"
+#include "cstdlib"
 
 typedef std::string	string;
 
@@ -19,7 +20,7 @@ int main(int ac, char **av){
 		std::cout << RED << "*FAILED to open input file*" << std::endl;
 		exit(2);
 	}
-	std::ofstream of_file(filename);
+	std::ofstream of_file(filename.c_str());
 	if (!of_file.is_open()){
 		std::cout << RED << "*FAILED to open output file*" << std::endl;
 		exit(2);

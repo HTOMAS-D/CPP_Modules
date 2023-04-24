@@ -10,10 +10,11 @@ class ScavTrap : public ClapTrap{
 	public:
 		ScavTrap(void); 							//Canonical
 		ScavTrap(std::string name);
-		ScavTrap(ScavTrap const &copy);				//Canonical
+		ScavTrap(ScavTrap const &other);				//Canonical
 		~ScavTrap(void); 							//Canonical
 		
-		ScavTrap&	operator=(ScavTrap const &rhs); //Canonical
+		ScavTrap &operator=(ScavTrap const &other);
+		void guardGate();
 };
 
 #endif

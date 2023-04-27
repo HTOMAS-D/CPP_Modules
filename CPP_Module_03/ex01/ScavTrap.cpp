@@ -8,17 +8,36 @@ ScavTrap::ScavTrap() : ClapTrap()
 	this->_attack_damage = 20;
 }
 
+ScavTrap::ScavTrap(std::string name){
+	std::cout << name <<" was built" << std::endl;
+    this->_name = name;
+    this->_hit_points = 100;
+	this->_energy_points = 50;
+	this->_attack_damage = 20;
+}
+
 ScavTrap::~ScavTrap(){
 	std::cout << "random Scavtrap was destroyed" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name){
-	this->_name = name;
+ScavTrap::ScavTrap(ScavTrap const &other){
+    *this = other;
 }
 
 void ScavTrap::guardGate()
 {
 	std::cout << this->_name << " is now on Gatekeeper mode" << std::endl;
+}
+
+void ScavTrap::attack(std::string const &target){
+    if(_hit_points > 0 && _energy_points > 0)
+    {
+        _energy_points--;
+        std::cout << "ScavTrap " << _name << " attacks " << target << " dealing " <<_attack_damage << " points of damage" << std::endl;
+    }
+    else
+    	std::cout << _name << " is either dead or without energy" << std::endl;
+
 }
 
 ScavTrap &ScavTrap::operator=(ScavTrap const &other)

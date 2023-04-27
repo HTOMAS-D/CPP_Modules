@@ -3,12 +3,15 @@
 
 int main(){
 	// ClapTrap henrique("Henrique");
-	ScavTrap merdas;
+	ScavTrap merdas("merdas");
 
 	// henrique.attack("oscar");
 	merdas.attack("henrique");
 	merdas.guardGate();
-	// henrique.beRepaired(4);
+	merdas.beRepaired(4);
+	merdas.takeDamage(10);
+	merdas.takeDamage(100);
+	merdas.takeDamage(10);
 	// henrique.takeDamage(20);
 	// henrique.attack("oscar");
 }

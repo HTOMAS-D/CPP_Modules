@@ -20,7 +20,8 @@ ScavTrap::~ScavTrap(){
 	std::cout << "random Scavtrap was destroyed" << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &other){
+ScavTrap::ScavTrap(ScavTrap const &other) : ClapTrap(other)
+{
     *this = other;
 }
 

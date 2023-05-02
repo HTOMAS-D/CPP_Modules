@@ -9,7 +9,7 @@ FragTrap::FragTrap() : ClapTrap()
 	this->_hit_points = 100;
 }
 
-FragTrap::FragTrap(std::string const name)
+FragTrap::FragTrap(std::string const name) : ClapTrap(name)
 {
 	std::cout << name <<" was built" << std::endl;
 	this->_name = name;

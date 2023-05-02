@@ -3,10 +3,16 @@
 #include "FragTrap.hpp"
 
 int main(){
-	FragTrap	fragTrap("PireXa");
-	fragTrap.attack("target");
-	fragTrap.takeDamage(10);
-	fragTrap.beRepaired(5);
-	fragTrap.highFivesGuys();
+	// ScavTrap ricky("ricky");
+	FragTrap rico;
+
+	// ricky.attack("target");
+	// ricky.takeDamage(10);
+	// ricky.beRepaired(10);
+	// ricky.guardGate();
+	rico.attack("target");
+	rico.takeDamage(10);
+	rico.beRepaired(5);
+	rico.highFivesGuys();
 	return (0);
 }

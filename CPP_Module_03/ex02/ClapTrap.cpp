@@ -1,7 +1,7 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(void){
-	_name = "random ClapTrap";
+	_name = "random";
 	_hit_points = 10;
 	_energy_points = 10;
 	_attack_damage = 0;
@@ -14,6 +14,11 @@ ClapTrap::ClapTrap(std::string name){
 	_energy_points = 10;
 	_attack_damage = 0;
 	std::cout << _name << " was built" << std::endl;
+}
+
+ClapTrap::ClapTrap(ClapTrap const &other)
+{
+	*this = other;
 }
 
 ClapTrap::~ClapTrap(void){
@@ -45,7 +50,7 @@ void ClapTrap::beRepaired(unsigned int amount){
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
-	if(!_hit_points){
+	if(_hit_points <= 0){
 		std::cout << _name << " is already dead" << std::endl;
 		return;
 	}

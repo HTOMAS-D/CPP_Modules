@@ -62,3 +62,8 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &other){
 	_attack_damage = other._attack_damage;
 	return *this;
 }
+
+ClapTrap::ClapTrap(ClapTrap const &copy){
+	*this = copy;
+	std::cout << "Copy constructor called" << std::endl;
+}

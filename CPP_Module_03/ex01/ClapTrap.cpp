@@ -1,7 +1,7 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(void){
-	_name = "random ClapTrap";
+	_name = "random";
 	_hit_points = 10;
 	_energy_points = 10;
 	_attack_damage = 0;

@@ -3,7 +3,8 @@
 ScavTrap::ScavTrap() : ClapTrap()
 {
 	std::cout << "random Scavtrap was built" << std::endl;
-	this->_hit_points = 100;
+	this->_name = "Random";
+    this->_hit_points = 100;
 	this->_energy_points = 50;
 	this->_attack_damage = 20;
 }
@@ -17,7 +18,7 @@ ScavTrap::ScavTrap(std::string name){
 }
 
 ScavTrap::~ScavTrap(){
-	std::cout << "random Scavtrap was destroyed" << std::endl;
+	std::cout << "Scavtrap "<< _name <<" was destroyed" << std::endl;
 }
 
 ScavTrap::ScavTrap(ScavTrap const &other) : ClapTrap(other)

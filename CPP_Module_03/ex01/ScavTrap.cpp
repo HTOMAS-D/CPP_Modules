@@ -3,6 +3,7 @@
 ScavTrap::ScavTrap() : ClapTrap()
 {
 	std::cout << "random Scavtrap was built" << std::endl;
+    this->_name = "random";
 	this->_hit_points = 100;
 	this->_energy_points = 50;
 	this->_attack_damage = 20;

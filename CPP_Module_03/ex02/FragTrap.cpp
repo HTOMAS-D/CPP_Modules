@@ -3,12 +3,13 @@
 FragTrap::FragTrap() : ClapTrap()
 {
 	std::cout << "Random FragTrap was built" << std::endl;
+	this->_name = "Random";
 	this->_attack_damage = 30;
 	this->_energy_points = 100;
 	this->_hit_points = 100;
 }
 
-FragTrap::FragTrap(std::string name)
+FragTrap::FragTrap(std::string const name)
 {
 	std::cout << name <<" was built" << std::endl;
 	this->_name = name;
@@ -17,13 +18,13 @@ FragTrap::FragTrap(std::string name)
 	this->_hit_points = 100;
 }
 
-FragTrap::FragTrap(FragTrap const &other) : ClapTrap(other)
+FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other)
 {
 	*this = other;
 }
 
 FragTrap::~FragTrap(){
-	std::cout << "Random Fragtrap was destroyed" << std::endl;
+	std::cout << "Fragtrap " << _name << " was destroyed" << std::endl;
 }
 
 FragTrap &FragTrap::operator=(FragTrap const &other){
@@ -36,4 +37,9 @@ FragTrap &FragTrap::operator=(FragTrap const &other){
 		this->_attack_damage = other._attack_damage;
 	}
 	return *this;
+}
+
+void FragTrap::highFivesGuys()
+{
+	std::cout << _name << " high fives everyone" << std::endl;
 }

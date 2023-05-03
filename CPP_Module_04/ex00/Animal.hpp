@@ -8,7 +8,7 @@ class Animal{
 		std::string type;
 	public:
 		Animal();						//canonical
-		virtual ~Animal();						//canonical
+		virtual~Animal();						//canonical
 		Animal(Animal const &copy);		//canonical
 
 		Animal &operator=(Animal const &other);		//canonical

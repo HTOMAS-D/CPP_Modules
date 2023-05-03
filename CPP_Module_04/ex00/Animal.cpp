@@ -15,10 +15,15 @@ Animal::~Animal(){
 }
 
 Animal& Animal::operator=(Animal const &copy){
-	type = copy.type;
+	if(this != &copy)	
+		this->type = copy.type;
 	return *this;
 }
 
-std::string Animal::getType(){
+std::string Animal::getType() const{
 	return this->type;
+}
+
+void Animal::makeSound() const{
+	std::cout << "Random animal sound" << std::endl;
 }

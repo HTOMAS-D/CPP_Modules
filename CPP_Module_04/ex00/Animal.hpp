@@ -7,13 +7,14 @@ class Animal{
 	protected:
 		std::string type;
 	public:
-		Animal();
-		~Animal();
-		Animal(Animal const &copy);
+		Animal();						//canonical
+		virtual ~Animal();						//canonical
+		Animal(Animal const &copy);		//canonical
 
-		Animal &operator=(Animal const &other);
+		Animal &operator=(Animal const &other);		//canonical
 
-		std::string getType();
+		std::string getType() const;
+		virtual void makeSound() const;
 };
 
 #endif

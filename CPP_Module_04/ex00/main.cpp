@@ -10,10 +10,11 @@ int main()
 	const Animal* i = new Cat();
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
+	j->makeSound(); //will output the cat sound!
+	i->makeSound();
 	meta->makeSound();
-	...
-	delete
+	delete meta;
+	delete j;
+	delete i;
 	return 0;
 }

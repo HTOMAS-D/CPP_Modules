@@ -20,6 +20,8 @@ Dog::~Dog(){
 Dog& Dog::operator=(Dog const &copy){
 	if (this != &copy)
 		this->type = copy.type;
+		delete this->_brain;
+		this->_brain = copy._brain;
 	return *this;
 }
 

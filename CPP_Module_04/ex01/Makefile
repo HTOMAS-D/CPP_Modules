@@ -1,4 +1,4 @@
-NAME = 	FragTrap
+NAME = 	Brain
 
 SRCS = $(wildcard *.cpp)
 
@@ -8,7 +8,7 @@ OBJS = $(SRCS:%.cpp = /%.o)
 
 CC = c++
 
-FLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 
 RM = rm -rf
 

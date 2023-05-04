@@ -2,6 +2,7 @@
 #define ANIMAL_HPP
 // #include <cstring>
 #include <iostream>
+#include "Brain.hpp"
 
 class Animal{
 	protected:

@@ -2,7 +2,7 @@
 
 WrongCat::WrongCat(){
 	std::cout << "WrongCat constructor called" << std::endl;
-	this->type = "Randonm WrongCat";
+	this->type = "Random WrongCat";
 }
 
 WrongCat::WrongCat(WrongCat const &copy): WrongAnimal(copy)

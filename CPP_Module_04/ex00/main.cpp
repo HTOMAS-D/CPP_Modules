@@ -6,7 +6,7 @@
 #include "WrongCat.hpp"
 
 
-// using virtual methods you can make so that you can override the parent class function with the function that is inheriting:
+// using virtual methods you can make so that you can override the base class function with the function that is derived:
 // An Animal pointer can point to a Cat (a function that inherits from it), if we use makesound() it will output the Cat sound.
 // if i dont use a virtual function it will output the animal sound despite being pointed to an Animal
 

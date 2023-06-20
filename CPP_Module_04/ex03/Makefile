@@ -1,16 +1,15 @@
-NAME = 	AMateria
+SRCS		=	main.cpp AMateria.cpp Character.cpp \
+				Cure.cpp Ice.cpp MateriaSource.cpp \
 
-SRCS = $(wildcard *.cpp)
+OBJS		=	$(addprefix objs/,$(SRCS:.cpp=.o))
 
-OBJS_D = objs
+CFLAGS		= 	-g -std=c++98 -Wall -Wextra -Werror -fsanitize=address
 
-OBJS = $(SRCS:%.cpp = /%.o)
+RM			=	rm -f
 
-CC = c++
+CC 			=	c++
 
-FLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
-
-RM = rm -rf
+NAME		=	Interface
 
 ##### COLORS #####
 
@@ -32,30 +31,27 @@ BMAGENTA	= \033[35;1m
 BCYAN	= \033[36;1m
 BWHITE	= \033[37;1m
 
-##### ACTIONS #####
 
-%.o:%.cpp
-	@mkdir -p $(OBJS_D)
-	$(CC) $(FLAGS) -o $@ -c $<
+objs/%.o: %.cpp
+			@mkdir -p objs
+			@$(CC) $(CFLAGS) -c $< -o $@
 
-all: $(NAME)
+all:		$(NAME)
 
-$(NAME): $(OBJS)
-	@echo "$(BLUE)Compiling $(YELLOW)$(NAME)$(BLUE) . . . . . . .$(DEFAULT)"
-	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
-	@echo "$(GREEN)Successfully built --> 😈😈😈 $(YELLOW)$(NAME)$(DEFAULT) 😈😈😈"
+$(NAME): 	$(OBJS)
+			@echo "$(BLUE)Compiling $(YELLOW)$(NAME)$(BLUE) . . . . . . .$(DEFAULT)"
+			@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+			@echo "$(GREEN)Successfully built --> 😈😈😈 $(YELLOW)$(NAME)$(DEFAULT) 😈😈😈"
 
-clean: 
-	@$(RM) $(OBJS_D)
-	@echo "$(BYELLOW)Objects $(BRED)REMOVED$(DEFAULT)"
+clean:
+			@$(RM) $(OBJS)
+			@echo "$(BYELLOW)Objects $(BRED)REMOVED$(DEFAULT)"
 
-fclean: clean
-	@$(RM) $(NAME)
-	@echo "$(BYELLOW)$(NAME) $(BRED)REMOVED$(DEFAULT)"
+fclean:		clean
+			@$(RM) $(NAME)
+			@echo "$(BYELLOW)$(NAME) $(BRED)REMOVED$(DEFAULT)"
 
-re: fclean all
-
-.PHONY: all clean re fclean
+re:		fclean all
 
 god:
 	git status
@@ -63,3 +59,5 @@ god:
 	git status
 	git commit -m "😈 Random Makefile Commit 😈"
 	git status
+
+.PHONY: all clean re fclean god

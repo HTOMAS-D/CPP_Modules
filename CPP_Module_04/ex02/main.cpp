@@ -18,5 +18,7 @@ int main()
 	for (int i = 0; i < 6; i++)
 		delete animals[i];
 	delete [] animals;
+	// Animal *animal = new Animal();      /***This wont compile because Animal is an abstract class so its not instatiable***/
+	// delete animal;
 	return 0;
 }

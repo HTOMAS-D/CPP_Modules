@@ -1,6 +1,6 @@
 NAME = 	My_First_Class
 
-SRCS = $(wildcard *.cpp)
+SRCS = main.cpp Fixed.cpp
 
 OBJS_D = objs
 

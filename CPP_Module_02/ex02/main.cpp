@@ -2,18 +2,19 @@
 #include "Fixed.hpp"
 #include <cmath>
 
-// int main( void ) {
-// 	Fixed a(0);
-// 	Fixed const b(Fixed(5.05f) * Fixed(2));
-// 	std::cout << "a:   " << a << std::endl;
-// 	std::cout << "++a: " << ++a << std::endl;
-// 	std::cout << a.getRawBits() << std::endl;
-// 	std::cout << "a:   " << a << std::endl;
-// 	std::cout << "a++: " << (a++) << std::endl;
-// 	std::cout << "a:   " << a << std::endl;
-// 	std::cout << "b:   " << b << std::endl;
-// 	std::cout << b.getRawBits() << std::endl;
-// 	std::cout << "max between a and b: " << Fixed::max(a, b) << std::endl;
+int main( void ) {
+	Fixed a(0);
+	Fixed const b(Fixed(5.05f) * Fixed(2));
+	std::cout << "a:   " << a << std::endl;
+	std::cout << "++a: " << ++a << std::endl;
+	// std::cout << a.getRawBits() << std::endl;
+	std::cout << "a:   " << a << std::endl;
+	std::cout << "a++: " << (a++) << std::endl;
+	std::cout << "a:   " << a << std::endl;
+	std::cout << "b:   " << b << std::endl;
+	// std::cout << b.getRawBits() << std::endl;
+	std::cout << "max between a and b: " << Fixed::max(a, b) << std::endl;
+}
 
 // 	{
 // 		Fixed a(5.0f);
@@ -58,15 +59,15 @@
 // 	return 0;
 // }
 
-int main( void ) {
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
-	return 0;
-}
+// int main( void ) {
+// 	Fixed a;
+// 	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+// 	std::cout << a << std::endl;
+// 	std::cout << ++a << std::endl;
+// 	std::cout << a << std::endl;
+// 	std::cout << a++ << std::endl;
+// 	std::cout << a << std::endl;
+// 	std::cout << b << std::endl;
+// 	std::cout << Fixed::max( a, b ) << std::endl;
+// 	return 0;
+// }

@@ -1,6 +1,6 @@
 NAME = 	Now_we_are_talking
 
-SRCS = $(wildcard *.cpp)
+SRCS = main.cpp Fixed.cpp
 
 OBJS_D = objs
 

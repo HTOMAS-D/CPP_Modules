@@ -1,6 +1,6 @@
 NAME = More_Useful
 
-SRCS = $(wildcard *.cpp)
+SRCS = main.cpp Fixed.cpp
 
 OBJS_D = objs
 

@@ -1,6 +1,6 @@
 NAME = 	Serena
 
-SRCS = $(wildcard *.cpp)
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
 
 OBJS_D = objs
 

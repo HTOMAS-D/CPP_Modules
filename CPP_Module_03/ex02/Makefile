@@ -1,6 +1,6 @@
 NAME = 	FragTrap
 
-SRCS = $(wildcard *.cpp)
+SRCS = main.cpp ClapTrap.cpp FragTrap.cpp
 
 OBJS_D = objs
 

@@ -16,11 +16,6 @@ ClapTrap::ClapTrap(std::string name){
 	std::cout << _name << " was built" << std::endl;
 }
 
-ClapTrap::ClapTrap(ClapTrap const &other)
-{
-	*this = other;
-}
-
 ClapTrap::~ClapTrap(void){
 	std::cout << "ClapTrap " << _name << " has died" << std::endl;
 }

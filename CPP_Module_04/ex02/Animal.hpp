@@ -15,7 +15,7 @@ class Animal{
 		Animal &operator=(Animal const &other);		//canonical
 
 		std::string getType()const;
-		virtual void makeSound()const = 0;
+		virtual void makeSound()const = 0; //making it a pure virtual class its therefore abstract, so it cant be instaciated
 };
 
 #endif

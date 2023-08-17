@@ -1,6 +1,6 @@
 NAME = 	Polymorphism
 
-SRCS = $(wildcard *.cpp)
+SRCS = Animal.cpp Dog.cpp main.cpp Cat.cpp
 
 OBJS_D = objs
 

@@ -1,6 +1,6 @@
 NAME = 	Brain
 
-SRCS = $(wildcard *.cpp)
+SRCS = main.cpp Animal.cpp Brain.cpp Cat.cpp Dog.cpp
 
 OBJS_D = objs
 

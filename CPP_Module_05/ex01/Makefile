@@ -1,4 +1,4 @@
-NAME = BraiiiiiinnnzzzZ
+NAME = Maggots
 
 SRCS = $(wildcard *.cpp)
 

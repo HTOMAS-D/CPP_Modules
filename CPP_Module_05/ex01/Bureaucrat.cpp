@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 
 // CONSTRUCTORS AND DECONST
@@ -57,6 +58,16 @@ void Bureaucrat::decrementGrade(){
 	}
 	catch (GradeTooLowException & e){
 		std::cout << "Exception " << e.what() << std::endl; 
+	}
+}
+
+void Bureaucrat::signForm(Form& form){
+	try{
+		form.beSigned(*this);
+		std::cout << this->getName() << " signed " << form.getName() << std::endl;
+	}
+	catch(const Form::GradeTooLowException& e){
+		std::cout << this->getName() << " couldn't  sign " << form.getName() << " because " << e.what() << std::endl; 
 	}
 }
 

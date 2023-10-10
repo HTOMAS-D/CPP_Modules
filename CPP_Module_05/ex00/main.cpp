@@ -39,23 +39,4 @@ int main()
     Bureaucrat henrique ("Higrade", 0);
     Bureaucrat henrique2 ("lowgrade", 160);
 
-
-    // try { Bureaucrat letsTry("TooHigh", 0);	
-	// }
-	// catch (Bureaucrat::GradeTooLowException &e) {
-	// 	std::cout << e.what() << std::endl;
-	// }
-	// catch (Bureaucrat::GradeTooHighException &e) {
-	// 	std::cout << e.what() << std::endl;
-	// }
-    // std::cout << std::endl << std::endl << std::endl << std::endl;
-    // try { Bureaucrat letsTry("TooLow", 151);	
-	// }
-	// catch (Bureaucrat::GradeTooLowException &e) {
-	// 	std::cout << e.what() << std::endl;
-	// }
-	// catch (Bureaucrat::GradeTooHighException &e) {
-	// 	std::cout << e.what() << std::endl;
-	// }
-    
 }

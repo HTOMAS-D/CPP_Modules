@@ -3,6 +3,9 @@
 #include <iostream>
 #include <exception>
 #include <string>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat{
     private:
@@ -34,6 +37,8 @@ class Bureaucrat{
             public:
                 virtual const char* what() const throw();
         };
+        void signForm(Form& form);
+
 };
 
 std::ostream&	operator<<(std::ostream& os, const Bureaucrat& bureaucrat); // donce

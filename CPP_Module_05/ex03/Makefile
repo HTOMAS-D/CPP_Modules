@@ -1,4 +1,4 @@
-NAME = BraiiiiiinnnzzzZ
+NAME = Coffee
 
 SRCS = $(wildcard *.cpp)
 

@@ -1,4 +1,4 @@
-NAME = BraiiiiiinnnzzzZ
+NAME = AForm
 
 SRCS = $(wildcard *.cpp)
 

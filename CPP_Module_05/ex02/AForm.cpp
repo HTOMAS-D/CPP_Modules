@@ -41,6 +41,10 @@ const char * AForm::GradeTooLowExceptionExecute::what()const throw(){
     return ("Grade to low to execute");
 }
 
+const char * AForm::FormUnsigned::what()const throw(){
+    return ("Form is not signed");
+}
+
 //GETTERS
 
 std::string AForm::getName() const{
@@ -75,11 +79,14 @@ bool AForm::checkperm(Bureaucrat const & bur) const{
             throw AForm::GradeTooLowExceptionExecute();
         else if (bur.getGrade() < 0)
             throw AForm::GradeTooHighExceptionExecute();
+        if (this->isSigned() == false)
+            throw AForm::FormUnsigned();
         else
             return (true);
     }
     catch (GradeTooLowExceptionExecute & e) {std::cout << e.what() << std::endl;}
     catch (GradeTooHighExceptionExecute & e) {std::cout << e.what() << std::endl;}
+    catch (FormUnsigned & e) {std::cout << e.what() << std::endl;}
     return (false);
 }
 
@@ -94,3 +101,9 @@ std::ostream& operator<<(std::ostream &os, AForm &Aform){
     return os;
 }
 
+AForm& AForm::operator=(const AForm& copy) {
+    if (this != &copy) {
+        _signed = copy._signed;
+    }
+    return *this;
+}

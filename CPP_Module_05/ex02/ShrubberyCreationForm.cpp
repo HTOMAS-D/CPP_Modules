@@ -16,18 +16,19 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm co
     return (*this);
 }
 
-const std::string ShrubberyCreationForm::getTarget(){
+std::string ShrubberyCreationForm::getTarget() const{
     return this->_target;
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const & bur) const{
     std::ofstream ToCreate;
-        
+    std::string holder = this->getTarget() + "_shrubbery";
+
     if (checkperm(bur))
     {
-        ToCreate.open((this->getTarget() + "_shrubbery").c_str(), std::ofstream::out | std::ofstream::trunc);
+        ToCreate.open(holder.c_str(), std::ofstream::out | std::ofstream::trunc);
         if (ToCreate.fail()){
-            std::cout << "errot opening file" << std::endl;
+            std::cout << "error opening file" << std::endl;
         }
         ToCreate << "               ,@@@@@@@,"  << std::endl;
         ToCreate << "       ,,,.   ,@@@@@@/@@,  .oo8888o."  << std::endl;
@@ -40,6 +41,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & bur) const{
         ToCreate << "       |.|        | |         | |"  << std::endl;
         ToCreate << " \\/ ._\\//_/__/  ,\\_//__\\/.  \\_//__/_"  << std::endl;
         ToCreate.close();
+        std::cout << "Shrubbery form executed" << std::endl;
     }
 }
 

@@ -9,7 +9,6 @@
 class ShrubberyCreationForm : public AForm {
     private:
         const std::string _target;
-        // std::strind _signed;
     public:
         ShrubberyCreationForm(const std::string &target);
         ~ShrubberyCreationForm();
@@ -18,7 +17,7 @@ class ShrubberyCreationForm : public AForm {
 
         void execute(Bureaucrat const &bur) const;
 
-        const std::string getTarget(void);
+        std::string getTarget(void) const;
         
         class CantSign : public std::exception{
             public:

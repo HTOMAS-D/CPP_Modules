@@ -3,9 +3,9 @@
 #include <iostream>
 #include <exception>
 #include <string>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat{
     private:
@@ -37,7 +37,8 @@ class Bureaucrat{
             public:
                 virtual const char* what() const throw();
         };
-        void signForm(Form& form);
+        void signForm(AForm& form);
+        void executeForm(AForm const & form);
 
 };
 

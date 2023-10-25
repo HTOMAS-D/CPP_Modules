@@ -1,6 +1,8 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main()
 {
@@ -14,36 +16,61 @@ int main()
     // henrique.signForm(cub3d);
 
     srand(time(NULL));
-	Bureaucrat                    b1("Johny", 71);
-	Bureaucrat                    b2("Roger", 40);
-	Bureaucrat                    b3("Scotty", 2);
-	ShrubberyCreationForm         f1("Tree-Hugger");
-	// RobotomyRequestForm           f2("Wannabe Robot");
-	// PresidentialPardonForm        f3("Vice-President");
+	Bureaucrat                    b1("Rafa ", 150);
+	Bureaucrat                    b2("Vitor", 24);
+	Bureaucrat                    b3("Ricky", 2);
+	ShrubberyCreationForm         f1("Tree-Form");
+	RobotomyRequestForm           f2("Robot");
+	PresidentialPardonForm        f3("Pres-Form");
 
-	std::cout << "\nB1 tries:\n\n";
+    std::cout << std::endl << std::endl;
+
+	// std::cout << "\nB1 tries:\n\n";
     b1.signForm(f1);
-    b1.signForm(f2);
+    // b1.signForm(f2);
     b1.signForm(f3);
     b1.executeForm(f1);
-    b1.executeForm(f2);
+    // b1.executeForm(f2);
     b1.executeForm(f3);
 
-	std::cout << "\nNow b2 tries:\n\n";
+    std::cout << std::endl << std::endl;
+	// std::cout << "\nNow b2 tries:\n\n";
 	b2.signForm(f1);
 	b2.signForm(f2);
-	b2.signForm(f3);
+	// b2.signForm(f3);
 	b2.executeForm(f1);
 	b2.executeForm(f2);
-	b2.executeForm(f3);
+	// b2.executeForm(f3);
 
-	std::cout << "\nNow b3 tries:\n\n";
-	b3.signForm(f1);
-	b3.signForm(f2);
+    std::cout << std::endl << std::endl;
+	// std::cout << "\nNow b3 tries:\n\n";
+	// b3.signForm(f1);
+	// b3.signForm(f2);
 	b3.signForm(f3);
-	b3.executeForm(f1);
-	b3.executeForm(f2);
+	// b3.executeForm(f1);
+	// b3.executeForm(f2);
 	b3.executeForm(f3);
+
+
+    // int test = rand() % 100;
+    // std::cout << "random: " << test << std::endl;
+    // test = rand() % 100;
+    // std::cout << "random: " << test << std::endl;
+    // test = rand() % 100;
+    // std::cout << "random: " << test << std::endl;
+    // test = rand() % 100;
+    // std::cout << "random: " << test << std::endl;
+    // test = rand() % 100;
+    // std::cout << "random: " << test << std::endl;
+    // test = rand() % 100;
+    // std::cout << "random: " << test << std::endl;
+    // test = rand() % 100;
+    // std::cout << "random: " << test << std::endl;
+    // test = rand() % 100;
+    // std::cout << "random: " << test << std::endl;
+
+
+
 	return (0);
 
 }

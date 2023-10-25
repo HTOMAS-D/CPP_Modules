@@ -50,6 +50,11 @@ class AForm{
             public:
                 virtual const char* what() const throw();
         };
+		class FormUnsigned: public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
 
 		void beSigned(Bureaucrat& bur); //done
 		virtual void execute(Bureaucrat const & bur) const = 0;

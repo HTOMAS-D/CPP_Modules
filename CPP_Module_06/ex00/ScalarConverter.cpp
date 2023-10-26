@@ -50,8 +50,10 @@ void ScalarConverter::setType(std::string value){
     }
     else
         this->_impossible=true;
+}
 
-
+std::string ScalarConverter::getType(){
+    return this->_type;
 }
 
 //CHECKERS
@@ -66,4 +68,29 @@ bool checkLiteral(std::string value){
 
 void ScalarConverter::convert(std::string value){
     this->setType(value);
+    if (this->getType() == "float"){
+        this->_char = static_cast<char>(this->_float);
+		this->_double = static_cast<double>(this->_float);
+		this->_int = static_cast<int>(this->_float);
+    }
+    else if (this->getType() == "double"){
+        this->_char = static_cast<char>(this->_double);
+		this->_float = static_cast<float>(this->_double);
+        //check message for 3rd case
+    }
+    else if (this->getType() == "int"){
+        this->_float = static_cast<float>(this->_int);
+		this->_char = static_cast<char>(this->_int);
+		this->_double = static_cast<double>(this->_int);
+    }
+    else if (this->getType() == "char"){
+        this->_int = static_cast<int>(this->_char);
+		this->_double = static_cast<double>(this->_char);
+		this->_float = static_cast<float>(this->_char);
+    }
+    else{
+        std::cout << "invalid string format for conversion" << std::endl;
+        exit(1);
+    }
+    //function to write everything
 }

@@ -31,6 +31,7 @@ class ScalarConverter{
         
         //GETTERS 
         void setType(std::string value);
+        std::string getType();
 
         //CHECKERS
         bool checkLiteral(std::string value);

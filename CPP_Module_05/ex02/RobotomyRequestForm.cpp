@@ -3,7 +3,7 @@
 RobotomyRequestForm::~RobotomyRequestForm(){}
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm(target, 72, 45), _target(target) {
-	std::cout << "Default Constructor called of Presidential Form" << std::endl;
+	std::cout << "Default Constructor called of Robotomy Form" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &copy) : AForm(copy), _target(copy._target){

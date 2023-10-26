@@ -3,7 +3,7 @@
 PresidentialPardonForm::~PresidentialPardonForm(){}
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AForm(target, 25, 5), _target(target) {
-	std::cout << "Default Constructor called of Presidential Form" << std::endl;
+	std::cout << "Default Constructor called of Robotomy Form" << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &copy) : AForm(copy), _target(copy._target){

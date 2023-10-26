@@ -3,19 +3,11 @@
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
-    // Bureaucrat henrique ("Cansign", 20);
-    // Bureaucrat rafa ("Nosign", 90);
-    // ShrubberyCreationForm cub3d("cub3d", 45, 1);
-    // std::cout << "to sign: " << cub3d.getToSign() << std::endl;
-    // std::cout << "henrique grade: " << henrique.getGrade() << std::endl;
-    // std::cout << "rafa grade: " << rafa.getGrade() << std::endl;
-    // rafa.signForm(cub3d);
-    // henrique.signForm(cub3d);
 
-    srand(time(NULL));
 	Bureaucrat                    b1("Rafa ", 150);
 	Bureaucrat                    b2("Vitor", 24);
 	Bureaucrat                    b3("Ricky", 2);
@@ -50,27 +42,46 @@ int main()
 	// b3.executeForm(f1);
 	// b3.executeForm(f2);
 	b3.executeForm(f3);
+    std::cout << std::endl << std::endl;
+    std::cout << std::endl << std::endl;
 
-
-    // int test = rand() % 100;
-    // std::cout << "random: " << test << std::endl;
-    // test = rand() % 100;
-    // std::cout << "random: " << test << std::endl;
-    // test = rand() % 100;
-    // std::cout << "random: " << test << std::endl;
-    // test = rand() % 100;
-    // std::cout << "random: " << test << std::endl;
-    // test = rand() % 100;
-    // std::cout << "random: " << test << std::endl;
-    // test = rand() % 100;
-    // std::cout << "random: " << test << std::endl;
-    // test = rand() % 100;
-    // std::cout << "random: " << test << std::endl;
-    // test = rand() % 100;
-    // std::cout << "random: " << test << std::endl;
-
-
-
+    Intern randomDude;
+    std::cout << std::endl;
+    try {
+        AForm *holder1;
+        holder1 = randomDude.makeForm("ola", "alguem");
+        std::cout << std::endl << std::endl;
+        delete holder1;
+    }
+    catch(const Intern::NoSuchForm& e) {
+        std::cerr << "Error: " << e.what() << std::endl << std::endl << std::endl;
+    }
+    try {
+        AForm *holder1;
+        holder1 = randomDude.makeForm("PresidentialPardonForm", "alguem");
+        std::cout << std::endl << std::endl;
+        delete holder1;
+    }
+    catch(const Intern::NoSuchForm& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+    try {
+        AForm *holder1;
+        holder1 = randomDude.makeForm("RobotomyRequestForm", "alguem");
+        std::cout << std::endl << std::endl;
+        delete holder1;
+    }
+    catch(const Intern::NoSuchForm& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+    try {
+        AForm *holder1;
+        holder1 = randomDude.makeForm("ShrubberyCreationForm", "alguem");
+        std::cout << std::endl << std::endl;
+        delete holder1;
+    }
+    catch(const Intern::NoSuchForm& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
 	return (0);
-
 }

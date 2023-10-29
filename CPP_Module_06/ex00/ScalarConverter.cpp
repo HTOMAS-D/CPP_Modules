@@ -83,6 +83,11 @@ void    ScalarConverter::get_type(std::string str){
         this->setType(NONUMB);
 }
 
+// syntax of the static_cast: new_type new_variable = static_cast<new_type>(expression);
+//  int integerNumber = 42;
+// double doubleNumber = static_cast<double>(integerNumber);
+// CAREFUL WITH STATIC CAST: since is has less runtime checking than dynamic cast, might fuck up programs (only do it when sure)
+
 void ScalarConverter::convert(const std::string &str){
     this->get_type(str);
     switch(this->getType()){
@@ -192,14 +197,14 @@ void    ScalarConverter::setInput(std::string str){_numbStr = str;}
 
 void    ScalarConverter::setType(int type){this->_type = type;}
 
-bool ScalarConverter::isLiteral(std::string str){return (str == "nan"|| str == "nanf" || str == "+inff" || str == "-inff" || str == "-inf" || str == "+inf" ? true : false);}
+bool ScalarConverter::isLiteral(std::string string){return (string == "nan"|| string == "nanf" || string == "+inff" || string == "-inff" || string == "-inf" || string == "+inf" ? true : false);}
 
-std::string convertLiteralToDouble(std::string str){
-	if (str == "nanf")
+std::string convertLiteralToDouble(std::string string){
+	if (string == "nanf")
 		return "nan";
-	else if (str == "+inff")
+	else if (string == "+inff")
 		return "+inf";
-	else if (str == "-inff")
+	else if (string == "-inff")
 		return "-inf";
-	return str;
+	return string;
 }

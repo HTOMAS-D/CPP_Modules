@@ -1,4 +1,4 @@
-NAME = Coffee
+NAME = ScalarConverter
 
 SRCS = $(wildcard *.cpp)
 

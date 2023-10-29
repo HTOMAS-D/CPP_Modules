@@ -1,5 +1,6 @@
 #ifndef SCALAR_CONVERTER_HPP
-#define SCALAR_CONVERTER_HPP
+# define SCALAR_CONVERTER_HPP
+
 #include <iostream>
 #include <string>
 #include <iomanip>
@@ -7,37 +8,41 @@
 #include <cstdlib>
 #include <climits>
 
-class ScalarConverter{
+#define CHAR 1
+#define FLOAT 2
+#define DOUBLE 3
+#define INT 4
+#define NONUMB 5
+#define ALMOST 6
+
+class ScalarConverter {
     private:
-        std::string _numberStr;
-        bool _isLiteral;
-        bool _digit;
-        bool _letter;
-        bool _dot;
-        bool _f;
-        std::string _type;
-        bool _impossible;
-        
+        std::string _numbStr;
+        int  _type;
+        char _char;
+        int _int;
         float _float;
         double _double;
-        int _int;
-        char _char;
+        bool _impossible;
 
     public:
         ScalarConverter();
+        ScalarConverter(ScalarConverter &src);
+        ScalarConverter &operator=(ScalarConverter const &src);
         ~ScalarConverter();
-        ScalarConverter(ScalarConverter const & copy);
-        ScalarConverter &operator=(ScalarConverter const & copy);
-        
-        //GETTERS 
-        void setType(std::string value);
-        std::string getType();
-
-        //CHECKERS
-        bool checkLiteral(std::string value);
-
-        //CONVERTERS
-        void convert(std::string value);
+        void    convert(const std::string &std);
+        void    get_type(std::string str);
+        void    setInput(std::string str);
+        void    getInt() const;
+        void    getFloat() const;
+        void    getChar() const;
+        void    getDouble() const;
+        void    printer(std::string str);
+        void    setType(int type);
+        int     getType(void); 
+        static bool        isLiteral(std::string str);
 };
+
+std::string convertLiteralToDouble(std::string str);
 
 #endif

@@ -1,4 +1,4 @@
-NAME = Coffee
+NAME = Serializer
 
 SRCS = $(wildcard *.cpp)
 

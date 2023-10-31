@@ -1,4 +1,4 @@
-NAME = Coffee
+NAME = Base
 
 SRCS = $(wildcard *.cpp)
 

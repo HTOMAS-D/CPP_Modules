@@ -1,4 +1,4 @@
-NAME = Base
+NAME = Iter
 
 SRCS = $(wildcard *.cpp)
 

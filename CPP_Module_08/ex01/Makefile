@@ -1,4 +1,4 @@
-NAME = Array
+NAME = Span
 
 SRCS = $(wildcard *.cpp)
 

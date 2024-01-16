@@ -4,15 +4,23 @@
 #include <string>
 #include <ctime>
 #include <cstdlib>
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
+// #include "A.hpp"
+// #include "B.hpp"
+// #include "C.hpp"
 
-class Base:{
+class A;
+class B;
+class C;
+
+class Base{
     private:
     public:
-    virtual ~Base();
+        virtual ~Base();
 };
+
+class A : public Base {};
+class B : public Base  {};
+class C : public Base {};
 
 Base *generate(void);
 void identify(Base *p);

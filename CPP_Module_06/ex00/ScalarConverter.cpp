@@ -1,210 +1,133 @@
 #include "ScalarConverter.hpp"
 
-ScalarConverter::ScalarConverter(){
-    _int = 0;
-	_double = 0;
-	_float = 0;
-	_impossible = false;
-	_char = 0;
-	_type = NONUMB;
-	_numbStr = "";
-}
+ScalarConverter::ScalarConverter(){}
 
-ScalarConverter::ScalarConverter(ScalarConverter &src){
-    _int = src._int;
-	_double = src._double;
-	_float = src._float;
-	_char = src._char;
-	_impossible = src._impossible;
-	_type = src._type;
-	_numbStr = src._numbStr;
-}
+ScalarConverter::ScalarConverter(const ScalarConverter &copy){(void) copy;}
 
-ScalarConverter &ScalarConverter::operator=(ScalarConverter const &src){
-    if (this == &src)
-		return *this;
-	this->_int = src._int;
-    this->_float = src._float;
-	this->_double = src._double;
-	this->_char = src._char;
-	this->_impossible = src._impossible;
-	this->_type = src._type;
-	this->_numbStr = src._numbStr;
+ScalarConverter::~ScalarConverter(){}
+
+ScalarConverter & ScalarConverter::operator=(const ScalarConverter &assign){
+	(void) assign;
 	return *this;
 }
 
-ScalarConverter::~ScalarConverter() {}
+void printChar(char c){std::cout << "char: " << (std::isprint(c) ? std::string(1, c) : "Non displayable") << std::endl;}
 
-void    ScalarConverter::get_type(std::string str){
-    int i = 0;
-	int dot = 0;
-	int f = 0;
-	int letter = 0;
-	int nbr = 0;
-    this->setInput(str);
+void printInt(int i){std::cout << "Int: " << i << std::endl;}
 
-    if (this->isLiteral(this->_numbStr) == true){
-		this->setType(ALMOST);
-		return;
+void printFloat(float f){std::cout << "Float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;}
+
+void printDouble(double d){std::cout << "Double: " << std::fixed << std::setprecision(1) << d << std::endl;}
+
+void	ScalarConverter::convert(std::string lit){
+	float	f;
+
+	switch (getType(lit)){
+		case 1:
+			printer(lit[0]);
+			break ;
+		case 2:
+			printer(atoi(lit.c_str()));
+			break ;
+		case 3:
+			lit.resize(lit.size() - 1);
+			f = strtof(lit.c_str(), NULL);
+			printer(f);
+			break ;
+		case 4:
+			printer(strtod(lit.c_str(), NULL));
+			break ;
+		case 5:
+			std::cout << "Invalid input" << std::endl;
+			break ;
 	}
-    while (str[i]){
-        if (std::isdigit(str[i]))
-            nbr = 1;
-        else if (str[i] == '.')
-            dot = 1;
-        else if (str[i] == 'f' && str[i + 1] == '\0')
-            f = 1;
-        else if (std::isalpha(str[i]))
-            letter = 1;
-        i++;
-    }
-    if (nbr == 1 && dot == 1 && f == 1 && letter == 0) {
-        this->setType(FLOAT);
-        this->_float = atof(this->_numbStr.c_str());
-    }
-    else if (nbr == 1 && dot == 1 && f == 0 && letter == 0){
-        this->setType(DOUBLE);
-        this->_double = atof(this->_numbStr.c_str());
-    }
-    else if (nbr == 1 && dot == 0 && f == 0 && letter == 0){
-        this->setType(INT);
-        if (std::atol(this->_numbStr.c_str()) >= INT_MIN && std::atol(this->_numbStr.c_str()) <= INT_MAX) {
-			this->_int = std::atoi(this->_numbStr.c_str());
-			this->_char = this->_int;
-		}
-		else
-			this->_impossible = true;
-    }
-	else if (i == 1){
-        this->setType(CHAR);
-        this->_char = static_cast<char>(*(this->_numbStr.c_str()));
-    }
-    else 
-        this->setType(NONUMB);
 }
 
-// syntax of the static_cast: new_type new_variable = static_cast<new_type>(expression);
-//  int integerNumber = 42;
-// double doubleNumber = static_cast<double>(integerNumber);
-// CAREFUL WITH STATIC CAST: since is has less runtime checking than dynamic cast, might fuck up programs (only do it when sure)
-
-void ScalarConverter::convert(const std::string &str){
-    this->get_type(str);
-    switch(this->getType()){
-		case FLOAT:
-			this->_char = static_cast<char>(this->_float);
-			this->_double = static_cast<double>(this->_float);
-			this->_int = static_cast<int>(this->_float);
-			break;
-		case INT:
-			this->_float = static_cast<float>(this->_int);
-			this->_char = static_cast<char>(this->_int);
-			this->_double = static_cast<double>(this->_int);
-			break;
-		case DOUBLE:
-			this->_char = static_cast<char>(this->_double);
-			this->_float = static_cast<float>(this->_double);
-			this->_numbStr = static_cast<int>(this->_double);
-			break;
-		case CHAR:
-			this->_int = static_cast<int>(this->_char);
-			this->_double = static_cast<double>(this->_char);
-			this->_float = static_cast<float>(this->_char);
-			break;
-		default:
-			break;
-	}
-    this->printer(str);
+int getType(std::string lit){
+    if (isChar(lit)) return 1;
+    if (isInt(lit)) return 2;
+    if (isFloat(lit)) return 3;
+    if (isDouble(lit)) return 4;
+    return 5;
 }
 
-void ScalarConverter::getInt() const {
-	std::cout << "int: ";
-	if (this->_type == ALMOST || this->_type == NONUMB)
-		std::cout << "impossible" << std::endl;
-	else if (this->_impossible == true)
-		std::cout << "overflow" << std::endl;
-	else if (std::atol(this->_numbStr.c_str()) < INT_MIN || std::atol(this->_numbStr.c_str()) > INT_MAX)
-		std::cout << "overflow" << std::endl;
+int	isChar(std::string lit){return (lit.size() == 1 && isprint(lit[0]) != 0 && isdigit(lit[0]) == 0) ? 1 : 0;}
+
+int	isInt(std::string lit){
+	long n = strtol(lit.c_str(), NULL, 10);
+
+	if ((int)lit.find_first_not_of("-0123456789") == -1 && (n >= std::numeric_limits<int>::min() && n <= std::numeric_limits<int>::max()))
+		return (1);
+	return (0);
+}
+
+int	isFloat(std::string lit){
+	if (floatPseudolits(lit))
+		return (1);
+	if ((int)lit.find_last_of(".") != -1 && (int)lit.find_last_of("f") != -1){
+		if (((int)lit.find_first_not_of("-0123456789.f") == -1 && lit.find(".") == lit.find_last_of(".") && lit.find("f") == lit.find_last_of("f")))
+			return (1);
+	}
+	return (0);
+}
+
+int	isDouble(std::string lit){
+	if (doublePseudolits(lit))
+		return (1);
+	if ((int)lit.find_last_of(".") != -1){
+		if (((int)lit.find_first_not_of("-0123456789.") == -1&& lit.find(".") == lit.find_last_of(".")))
+		return (1);
+	}
+	return (0);
+}
+
+int	floatPseudolits(std::string lit){return(lit.compare("nanf") == 0 || lit.compare("-inff") == 0 || lit.compare("+inff") == 0) ? 1 : 0;}
+
+int	doublePseudolits(std::string lit){return (lit.compare("nan") == 0 || lit.compare("-inf") == 0 || lit.compare("+inf") == 0) ? 1 : 0;}
+
+void printer(char c){
+	printChar(c);
+	printInt(static_cast<int>(c));
+	printFloat(static_cast<float>(c));
+	printDouble(static_cast<double>(c));
+}
+
+void printer(int i){
+	if (i <= std::numeric_limits<char>::min() || i >= std::numeric_limits<char>::max())
+		std::cout << "Char: impossible" << std::endl;
 	else
-		std::cout << this->_int << std::endl;
+		printChar(static_cast<char>(i));
+	printInt(i);
+	printFloat(static_cast<float>(i));
+	printDouble(static_cast<double>(i));
 }
 
-void ScalarConverter::getFloat() const {
-	std::cout << "float: ";
-	if (this->_type == ALMOST) {
-		if (this->_numbStr == "-inf" || this->_numbStr == "+inf" || this->_numbStr == "nan")
-			std::cout << this->_numbStr << "f" << std::endl;
-		else
-			std::cout << this->_numbStr << std::endl;
-	}
-	else if (this->_type == NONUMB)
-		std::cout << "impossible" << std::endl;
-	else if (std::atol(this->_numbStr.c_str()) >= INT_MIN && std::atol(this->_numbStr.c_str()) <= INT_MAX){
-		std::cout << std::fixed << std::setprecision(1) << this->_float << "f" << std::endl;
-	}
+void printer(float f){
+	if (f <= std::numeric_limits<char>::min() || f >= std::numeric_limits<char>::max()
+		|| f != f)
+		std::cout << "Char: impossible" << std::endl;
 	else
-		std::cout << this->_numbStr << "f" << std::endl;
-}
-
-
-void ScalarConverter::getChar() const {
-	std::cout << "char: ";
-	if (_type == ALMOST || _type == NONUMB)
-		std::cout << "impossible" << std::endl;
-	else if (_char >= 32 && _char <= 126)
-		std::cout << "'" << _char << "'" << std::endl;
+		printChar(static_cast<char>(f));
+	if (f <= std::numeric_limits<int>::min() || f >= std::numeric_limits<int>::max() || f != f)
+		std::cout << "Int: impossible" << std::endl;
 	else
-		std::cout << "Non displayable" << std::endl;
+		printInt(static_cast<int>(f));
+	printFloat(f);
+	printDouble(static_cast<double>(f));
 }
 
-void ScalarConverter::getDouble() const {
-	std::cout << "double: ";
-	if (this->_type == ALMOST) {
-		std::cout << convertLiteralToDouble(this->_numbStr) << std::endl;
-	}
-	else if (this->_type == NONUMB)
-		std::cout << "impossible" << std::endl;
-	else if (std::atol(this->_numbStr.c_str()) >= INT_MIN && std::atol(this->_numbStr.c_str()) <= INT_MAX){
-		std::cout << std::fixed << std::setprecision(1) << this->_double << std::endl;
-	}
+void printer(double d){
+	if (d <= std::numeric_limits<char>::min() || d >= std::numeric_limits<char>::max() || d != d)
+		std::cout << "Char: impossible" << std::endl;
 	else
-		std::cout << this->_numbStr << std::endl;
-}
-
-bool	hasPeriod(std::string str){
-	int l = str.length();
-    return (l >= 2 && str[l - 1] == 'f' && str[l - 2] == '.' ? true : false);
-}
-
-void ScalarConverter::printer(std::string str) {
-	if (str[0] != '.' && str[str.length() - 1] != '.' && !hasPeriod(str)){
- 		getChar();
-		getInt();
-		getFloat();
-		getDouble();
-	}
-	else{
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: impossible" << std::endl;
-		std::cout << "double: impossible" << std::endl;
-	}	
-}
-
-int     ScalarConverter::getType(void){return (this->_type);}
-
-void    ScalarConverter::setInput(std::string str){_numbStr = str;}
-
-void    ScalarConverter::setType(int type){this->_type = type;}
-
-bool ScalarConverter::isLiteral(std::string string){return (string == "nan"|| string == "nanf" || string == "+inff" || string == "-inff" || string == "-inf" || string == "+inf" ? true : false);}
-
-std::string convertLiteralToDouble(std::string string){
-	if (string == "nanf")
-		return "nan";
-	else if (string == "+inff")
-		return "+inf";
-	else if (string == "-inff")
-		return "-inf";
-	return string;
+		printChar(static_cast<char>(d));
+	if (d <= std::numeric_limits<int>::min() || d >= std::numeric_limits<int>::max() || d != d)
+		std::cout << "Int: impossible" << std::endl;
+	else
+		printInt(static_cast<int>(d));
+	if (d <= std::numeric_limits<float>::min() || d >= std::numeric_limits<float>::max())
+		std::cout << "Float: impossible" << std::endl;
+	else
+		printFloat(static_cast<float>(d));
+	printDouble(d);
 }

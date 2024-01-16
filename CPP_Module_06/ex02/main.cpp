@@ -1,7 +1,11 @@
 #include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
+
 
 int main() {
-    std::srand(static_cast<unsigned>(std::time(nullptr));
+    std::srand(static_cast<unsigned>(std::time(nullptr)));
 
     Base *randomBase = generate();
     identify(randomBase);

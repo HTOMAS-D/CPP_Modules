@@ -20,19 +20,24 @@ const char *Intern::NoSuchForm::what() const throw(){
 
 AForm *Intern::makeForm(std::string formName, std::string formTarget) {
     AForm *holder;
+    std::string forms[3] = {"PresidentialPardonForm", "ShrubberyCreationForm", "RobotomyRequestForm"};
 
-    if (formName == "PresidentialPardonForm") {
-        holder = new PresidentialPardonForm(formTarget);
-        std::cout << "PresidentialPardonForm Created!!" << std::endl;
-    } else if (formName == "ShrubberyCreationForm") {
-        holder = new ShrubberyCreationForm(formTarget);
-        std::cout << "ShrubberyCreationForm Created!!" << std::endl;
-    } else if (formName == "RobotomyRequestForm") {
-        holder = new RobotomyRequestForm(formTarget);
-        std::cout << "RobotomyRequestForm Created!!" << std::endl;
-    } else {
-        throw Intern::NoSuchForm();
+    for(int i = 0; i < 3; i++){
+        if(!strcmp(formName.c_str(), forms[i].c_str())){
+            switch(i){
+            	case 0:
+					holder = new RobotomyRequestForm(formTarget);
+					break ;
+				case 1:
+					holder = new PresidentialPardonForm(formTarget);
+					break ;
+				case 2:
+					holder = new ShrubberyCreationForm(formTarget);
+					break ;
+            }
+            std::cout << forms[i] << " created!!" << std::endl;
+            return (holder);
+        }
     }
-
-    return holder;
+    throw Intern::NoSuchForm();
 }

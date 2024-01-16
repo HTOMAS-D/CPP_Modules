@@ -1,48 +1,42 @@
-#ifndef SCALAR_CONVERTER_HPP
-# define SCALAR_CONVERTER_HPP
-
+#pragma once
 #include <iostream>
-#include <string>
 #include <iomanip>
-#include <cmath>
+#include <string>
+#include <limits>
 #include <cstdlib>
-#include <climits>
+#include <ctype.h>
 
-#define CHAR 1
-#define FLOAT 2
-#define DOUBLE 3
-#define INT 4
-#define NONUMB 5
-#define ALMOST 6
+class ScalarConverter
+{
+	private:
+		ScalarConverter();
+		ScalarConverter(const ScalarConverter &copy);
+		~ScalarConverter();
+		ScalarConverter & operator = (const ScalarConverter &assign);
 
-class ScalarConverter {
-    private:
-        std::string _numbStr;
-        int  _type;
-        char _char;
-        int _int;
-        float _float;
-        double _double;
-        bool _impossible;
-
-    public:
-        ScalarConverter();
-        ScalarConverter(ScalarConverter &src);
-        ScalarConverter &operator=(ScalarConverter const &src);
-        ~ScalarConverter();
-        void    convert(const std::string &std);
-        void    get_type(std::string str);
-        void    setInput(std::string str);
-        void    getInt() const;
-        void    getFloat() const;
-        void    getChar() const;
-        void    getDouble() const;
-        void    printer(std::string str);
-        void    setType(int type);
-        int     getType(void); 
-        static bool        isLiteral(std::string str);
+	public:
+		static void		convert(std::string lit);
+		
 };
 
-std::string convertLiteralToDouble(std::string str);
 
-#endif
+void		printer(char c);
+void		printer(int i);
+void		printer(float f);
+void		printer(double d);
+
+
+void 	    printChar(char c);
+void		printInt(int i);
+void		printFloat(float f);
+void		printDouble(double d);
+
+
+int		floatPseudolits(std::string lit);
+int		doublePseudolits(std::string lit);
+
+int		isChar(std::string lit);
+int		isInt(std::string lit);
+int		isFloat(std::string lit);
+int		isDouble(std::string lit);
+int		getType(std::string lit);

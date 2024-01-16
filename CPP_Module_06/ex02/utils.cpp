@@ -1,11 +1,18 @@
 #include "Base.hpp"
 
 Base *generate(void){
+    Base *base;
     int choice = std::rand() % 3;
     switch (choice) {
-        case 0: return new A();
-        case 1: return new B();
-        case 2: return new C();
+        case 0: 
+            base = new A;
+            return base;
+        case 1: 
+            base = new B;
+            return base;
+        case 2: 
+            base = new C;
+            return base;
     }
 }
 

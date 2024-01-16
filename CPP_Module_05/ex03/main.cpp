@@ -83,5 +83,14 @@ int main()
     catch(const Intern::NoSuchForm& e) {
         std::cerr << "Error: " << e.what() << std::endl;
     }
+    try {
+        AForm *holder1;
+        holder1 = randomDude.makeForm("something", "alguem");
+        std::cout << std::endl << std::endl;
+        delete holder1;
+    }
+    catch(const Intern::NoSuchForm& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
 	return (0);
 }

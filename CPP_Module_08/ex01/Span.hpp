@@ -18,7 +18,7 @@ class Span{
         int shortestSpan()const;
         int longestSpan()const;
 
-};
+}; 
 
 
 #endif

@@ -5,8 +5,9 @@
 
 class Span{
     private:
-        const unsigned int _N;
+        unsigned int _N;
         std::vector<int> _array;
+        Span();
 
     public:
         Span(unsigned int N);
@@ -14,9 +15,11 @@ class Span{
         Span(Span const &copy);
         Span &operator=(Span const &copy);
 
-        void addNumber(int numb); //needs to throw exception
+        void addNumber(int numb);
         int shortestSpan()const;
         int longestSpan()const;
+
+        void addRange(int start, int end);
 
 };
 

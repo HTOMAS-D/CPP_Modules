@@ -12,7 +12,7 @@ FLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 
 RM = rm -rf
 
-##### COLORS #####
+##### COLORS ##### 
 
 WHITE	= \033[0;37m
 BLACK	= \033[0;30m

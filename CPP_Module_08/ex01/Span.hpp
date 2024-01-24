@@ -18,7 +18,7 @@ class Span{
         void addNumber(int numb);
         int shortestSpan()const;
         int longestSpan()const;
-
+  
         void addRange(int start, int end);
 
 };

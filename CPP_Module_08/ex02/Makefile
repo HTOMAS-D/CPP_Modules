@@ -1,4 +1,4 @@
-NAME = Array
+NAME = MutatedStack
 
 SRCS = $(wildcard *.cpp)
 

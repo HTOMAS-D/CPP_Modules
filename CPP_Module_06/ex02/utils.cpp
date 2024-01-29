@@ -14,6 +14,7 @@ Base *generate(void){
             base = new C;
             return base;
     }
+    return NULL;
 }
 
 void identify(Base *p){

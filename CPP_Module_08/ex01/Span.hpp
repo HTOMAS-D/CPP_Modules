@@ -20,6 +20,7 @@ class Span{
         int longestSpan()const;
   
         void addRange(int start, int end);
+        void addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 
 };
 

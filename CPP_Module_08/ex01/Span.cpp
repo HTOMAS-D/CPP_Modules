@@ -47,19 +47,23 @@ int Span::longestSpan()const{
 }
 
 
-void Span::addRange(int start, int end){
-    if(_array.size() + (end - start + 1) > _N) // +1 to include the end number
+void Span::addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end){//(int start, int end){
+    // if(_array.size() + (end - start + 1) > _N) // +1 to include the end number
+    //     throw std::exception();
+    // if(end - start == 0)
+    //     throw::std::exception();
+    // else if(end - start < 0){
+    //     for (int i = end; i <= start; ++i) {
+    //         _array.push_back(i);
+    //     }
+    // }
+    // else{
+    //     for (int i = start; i <= end; ++i) {
+    //        _array.push_back(i);
+    //     }
+    // }
+    if((std::distance(begin, end)) > _N){
         throw std::exception();
-    if(end - start == 0)
-        throw::std::exception();
-    else if(end - start < 0){
-        for (int i = end; i <= start; ++i) {
-            _array.push_back(i);
-        }
     }
-    else{
-        for (int i = start; i <= end; ++i) {
-           _array.push_back(i);
-        }
-    }
+    _array.insert(_array.end(), begin, end);
 }

@@ -10,7 +10,12 @@ int main(){
     numbers.push_back(5);
 
 
-    easyfind(numbers, 5);
-    std::cout << std::endl;
+    try{
+    // easyfind(numbers, 5);
+    std::cout << easyfind(numbers, 5) << std::endl;
     easyfind(numbers, 6);
+    }
+    catch(std::exception & e){
+        ;
+    }
 }
